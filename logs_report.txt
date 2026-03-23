@@ -1,0 +1,37 @@
+2025-01-21 08:15:10:The user user123 is Logged in
+2025-01-21 08:16:44:ERRO no usuário user123
+2025-01-21 08:20:01:The user user123 is Logged Out
+2025-01-21 09:01:55:The user user999 is Logged in
+2025-01-21 09:05:12:ERRO no usuário user999
+2025-01-21 09:07:44:The user user999 is Logged Out
+2025-01-21 10:15:33:The user user777 is Logged in
+2025-01-21 10:20:18:ERRO: user777 already Logged in
+2025-01-21 10:23:55:The user user777 is Logged Out
+2025-01-21 11:05:33:The user user888 is Logged in
+2025-01-21 11:06:05:The user user888 is Logged Out
+2025-01-21 11:06:15:ERRO: User user888 already Logged Out
+2025-01-21 12:00:01:The user user555 is Logged in
+2025-01-21 12:05:10:ERRO no usuário user555
+2025-01-21 12:06:42:ERRO: user555 already Logged in
+2025-01-21 12:08:33:The user user555 is Logged Out
+2025-01-21 12:10:10:ERRO: User user555 already Logged Out
+2025-01-21 12:15:21:The user user999 is Logged in
+2025-01-21 12:20:10:The user user999 is Logged Out
+2025-01-21 12:21:50:ERRO no usuário user111
+2025-01-21 12:22:20:The user user111 is Logged in
+2025-01-21 12:25:55:The user user111 is Logged Out
+2025-01-21 13:10:10:The user user200 is Logged in
+2025-01-21 13:20:44:The user user200 is Logged Out
+2025-01-21 14:00:05:The user user123 is Logged in
+2025-01-21 14:05:33:ERRO no usuário user123
+2025-01-21 14:07:55:The user user123 is Logged Out
+2025-01-21 14:20:10:The user user888 is Logged in
+2025-01-21 14:30:12:ERRO: user888 already Logged in
+2025-01-21 14:33:05:ERRO no usuário user888
+2025-01-21 14:40:01:The user user888 is Logged Out
+2025-01-21 15:00:00:The user user555 is Logged in
+2025-01-21 15:10:12:The user user555 is Logged Out
+
+REPORT LOGS!
+Logs successfully completed: 11
+Logout successfully completed: 2
