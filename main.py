@@ -18,7 +18,7 @@ class ProcessingLogs:
 
         #Contadores
         self.valid_logs = 0
-        self.valid_logout = 0 
+        self.sucess_logout = 0 
         self.user_command_valid = 0
 
     def parsing_logs(self):
@@ -37,31 +37,34 @@ class ProcessingLogs:
     def validation_logs(self):
         for user in self.logs:
             #Código de login do usuário
-            if "LOGIN" in user[2]:
-                if user[1] in self.dict_user and self.dict_user[user[1]] is True:
-                        self.status.append(f"{user[0]}:ERRO: {user[1]} already Logged in")
+            try:
+                if "LOGIN" in user[2]:
+                    if user[1] in self.dict_user and self.dict_user[user[1]] is True:
+                            self.status.append(f"{user[0]}:ERRO: {user[1]} already Logged in")
+                            
+                    else:
+                        self.dict_user[user[1]] = True
+                        self.status.append(f"{user[0]}:The user {user[1]} is Logged in")
+                        self.valid_logs += 1
                         
-                else:
-                    self.dict_user[user[1]] = True
-                    self.status.append(f"{user[0]}:The user {user[1]} is Logged in")
-                    self.valid_logs += 1
+
+
+                #Código de logout do usuário
+                elif "LOGOUT" in user[2]:
+                    if user[1] not in self.dict_user or self.dict_user[user[1]] is False:
+                            self.status.append(f"{user[0]}:ERRO: User {user[1]} already Logged Out")
+                            self.sucess_logout +=1
                     
+                    else:    
+                        self.dict_user[user[1]] = False
+                        self.status.append(f"{user[0]}:The user {user[1]} is Logged Out")
 
+                #Caso ocorra algum erro inesperado
+                elif "ERROR" in user[2]:
+                    self.status.append(f"{user[0]}:ERRO no usuário {user[1]}")
 
-            #Código de logout do usuário
-            elif "LOGOUT" in user[2]:
-                if user[1] not in self.dict_user or self.dict_user[user[1]] is False:
-                        self.status.append(f"{user[0]}:ERRO: User {user[1]} already Logged Out")
-                        self.valid_logout +=1
-                
-                else:    
-                    self.dict_user[user[1]] = False
-                    self.status.append(f"{user[0]}:The user {user[1]} is Logged Out")
-
-            #Caso ocorra algum erro inesperado
-            elif "ERROR" in user[2]:
-                self.status.append(f"{user[0]}:ERRO no usuário {user[1]}")
-
+            except Exception as erro: 
+                print(f"Erro: {erro}")
             
     def report_logs(self):
         self.path = "/home/davi/Documentos/Processamento log/logs_report.txt"
@@ -73,7 +76,7 @@ class ProcessingLogs:
             file.write(
                 f"""\nREPORT LOGS!
 Logs successfully completed: {self.valid_logs}
-Logout successfully completed: {self.valid_logout}"""
+Logout successfully completed: {self.sucess_logout}"""
             )
 
 
